@@ -35,12 +35,12 @@ public class ComputationExpressions {
         exStr = exStr.replaceAll("mod", " ");
         String[] variables = exStr.split("[ ]+");  //以空格为分隔符，得到变量名
         for (String variable : variables) {
-            if ("log ln arcsin arccos arctan sin cos tan INT abs mod".contains(variable)) {
+            if ("log ln arcsin arccos arctan sin cos tan INT abs mod".contains(variable) && !variable.equals("")) {
                 //如果输入的变量名是这些的子串，则抛出异常
                 //用空格隔开
                 throw new ComputeError("请注意设置的变量名不能为运算符号的子串");
             }
-            if (!list.contains(variable)) {
+            if (!list.contains(variable) && !variable.equals("")) {
                 list.add(variable);
             }
         }
